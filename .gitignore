@@ -9,8 +9,7 @@ src_managed/
 project/boot/
 project/target
 project/project
-.history
-.cache
 .idea
 app
 
+src/main/resources/twitter4j.properties

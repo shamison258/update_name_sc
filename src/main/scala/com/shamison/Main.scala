@@ -17,16 +17,18 @@ object Main {
 
 object Listener extends UserStreamAdapter {
 	override def onStatus(status: Status): Unit = {
-		print(status.getUser.getName + ": ")
+		println(status.getUser.getName
+			+ "(@" + status.getUser.getScreenName + ")"+ ": ")
 		println(status.getText)
+		println()
 	}
 
 	override def onFavorite(source: User, target: User, favoritedStatus: Status){
-		print(source.getName + " fav to ")
-		println(target.getName)
+		println("[FAV]:"+ source.getName
+			+ "(" + source.getScreenName + ")"+ " to ")
+		println(favoritedStatus.getText)
+		println()
 	}
-
-
 
 }
 

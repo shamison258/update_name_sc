@@ -1,4 +1,4 @@
-version := "developing"
+version := "1.0"
 organization := "com.shamison"
 scalaVersion := "2.11.5"
 libraryDependencies ++= Seq(

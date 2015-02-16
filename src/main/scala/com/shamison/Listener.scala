@@ -6,7 +6,7 @@ import twitter4j._
 /**
  * Created by shamison on 15/02/14.
  */
-object Listener extends UserStreamAdapter {
+class Listener extends UserStreamAdapter {
 	override def onStatus(status: Status): Unit = {
 		println(status.getUser.getName
 			+ "(@" + status.getUser.getScreenName + ")"+ ": ")

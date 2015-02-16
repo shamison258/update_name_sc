@@ -8,7 +8,7 @@ import twitter4j._
 object Main {
 	def main(args: Array[String]) = {
 		println("Hello, World")
-		val listener: StatusListener = Listener
+		val listener: StatusListener = new Listener
 		val twitter: TwitterStream = new TwitterStreamFactory().getInstance()
 		twitter.addListener(listener)
 		twitter.user()

@@ -28,6 +28,7 @@ class UpdateName(status: Status) {
 	def formatName(): String = {
 		var name = status.getText.replace("@" + Main.userId + " update_name ", "")
 		name = name.replace("(@" + Main.userId + ")", "")
+		name = name.replace("@", "☆")
 		if (name.length <= 20 && name.length > 0)
 			name
 		else

@@ -18,7 +18,7 @@ class UpdateDefault(status: Status) {
 
 	def update(): Unit = {
 		twitter.updateProfile(name, url, loc, des)
-		val in = Main.getClass.getClassLoader.getResourceAsStream("icon.jpeg")
+		val in = Main.getClass.getClassLoader.getResourceAsStream("icon.jpg")
 		twitter.updateProfileImage(in)
 		new Tweet().tweet("デフォルト設定に戻しました." + twitUrl)
 	}

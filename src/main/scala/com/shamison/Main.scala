@@ -14,8 +14,6 @@ object Main {
 	def main(args: Array[String]) = {
 		twitter.addListener(listener)
 		twitter.user()
-		println("up!")
-//		tw.tweet("update_name 起動しました")
 	}
 }
 

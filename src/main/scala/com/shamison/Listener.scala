@@ -9,10 +9,6 @@ import twitter4j._
 class Listener(userId: String) extends UserStreamAdapter {
 
 	override def onStatus(status: Status): Unit = {
-		//		println(status.getUser.getName
-		//			+ "(@" + status.getUser.getScreenName + ")"+ ": ")
-		//		println(status.getText)
-		//		println()
 		val tlText = status.getText
 
 		if (tlText.startsWith("@" + userId + " update_name ")
@@ -26,12 +22,5 @@ class Listener(userId: String) extends UserStreamAdapter {
 			&& status.getUser.getScreenName == userId)
 			new UpdateDefault(status).update()
 	}
-
-	//	override def onFavorite(source: User, target: User, favoritedStatus: Status){
-	//		println("[FAV]:"+ source.getName
-	//			+ "(" + source.getScreenName + ")"+ " to ")
-	//		println(favoritedStatus.getText)
-	//		println()
-	//	}
 
 }

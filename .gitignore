@@ -13,4 +13,4 @@ project/project
 app
 
 src/main/resources/twitter4j.properties
-src/main/resources/icon.jpeg
+src/main/resources/icon.jpg

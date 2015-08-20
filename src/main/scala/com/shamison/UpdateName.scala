@@ -19,9 +19,9 @@ class UpdateName(status: Status) {
 	def update(): Unit = {
 		if (name.length != 0) {
 			twitter.updateProfile(name, url, loc, des)
-			new Tweet().tweet("「" + name + "」に改名しました " + twitUrl)
+			Main.tweet("「" + name + "」に改名しました " + twitUrl)
 		} else {
-			new Tweet().tweet("改名できませんでした... " + twitUrl)
+			Main.tweet("改名できませんでした... " + twitUrl)
 		}
 	}
 

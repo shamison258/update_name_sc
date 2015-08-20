@@ -20,7 +20,7 @@ class UpdateIcon (status: Status) {
 		val in = connection.getInputStream
 		twitter.updateProfileImage(in)
 
-		new Tweet().tweet(
+		Main.tweet(
 			".@%s さんがアイコンを変えました %s".format(status.getUser.getScreenName, twitUrl))
 	}
 }

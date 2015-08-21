@@ -22,7 +22,7 @@ object Main {
     val updateName = """^@_sham258 update_name .*""".r
     val updateNamePrefix = """.*\(@_sham258\s?\)$""".r
     val updateIcon = """^@_sham258 update_icon .*""".r
-    val updateDefault = """^@_sham258 update_default .*""".r
+    val updateDefault = """^@_sham258 update_default.*""".r
     val updateSon = """.*そん$""".r
 
     override def onStatus(status: Status) = status.getText match {
@@ -32,8 +32,8 @@ object Main {
         actor ! Data(twitter, status, "icon")
       case updateDefault() =>
         actor ! Data(twitter, status, "def")
-      case updateSon() =>
-        actor ! Data(twitter, status, "")
+      case updateSon() if status.getUser.getScreenName == "_sham258" =>
+        actor ! Data(twitter, status, "son")
     }
 	}
   

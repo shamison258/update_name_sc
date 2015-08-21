@@ -32,7 +32,7 @@ class Master extends Actor {
     }
 
     def son(status: Status, twitter: Twitter) = status.getText match {
-      case name if name.length <= 20 =>
+      case name: String if name.length <= 20 =>
         twitter.updateProfile(name, null, null, null)
     }
   }
@@ -48,12 +48,11 @@ class Master extends Actor {
       val twitUrl = "https://twitter.com/" +
         status.getUser.getScreenName + "/status/" + status.getId
 
-      def update(): Unit = {
-        twitter.updateProfile(name, null, null, null)
-        val in = Main.getClass.getClassLoader.getResourceAsStream("icon.jpg")
-        twitter.updateProfileImage(in)
-        Main.tweet("デフォルト設定に戻しました." + twitUrl)
-      }
+      twitter.updateProfile(name, null, null, null)
+      val in = Main.getClass.getClassLoader.getResourceAsStream("icon.jpg")
+      twitter.updateProfileImage(in)
+      Main.tweet("デフォルト設定に戻しました。 " + twitUrl)
+
     }
   }
 
@@ -77,7 +76,7 @@ class Master extends Actor {
           false
         case n if n.length <= 20 =>
           twitter.updateProfile(name, null, null, null)
-          Main.tweet("「%s」に改名しました %s"
+          Main.tweet("「%s」に改名しました。 %s"
             .format(n, twitUrl).replaceAll("@", "-"))
           true
       }

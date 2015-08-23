@@ -30,9 +30,9 @@ object Main {
         actor ! Data(twitter, status, "name")
       case updateIcon() =>
         actor ! Data(twitter, status, "icon")
-      case updateDefault() =>
+      case updateDefault() if status.getUser.getScreenName == "_sham258"=>
         actor ! Data(twitter, status, "def")
-      case updateSon() if status.getUser.getScreenName == "_sham258" =>
+      case updateSon() =>
         actor ! Data(twitter, status, "son")
     }
 	}

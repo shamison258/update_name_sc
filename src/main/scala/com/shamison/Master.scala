@@ -2,10 +2,9 @@ package com.shamison
 
 import java.net.{URL, HttpURLConnection}
 
-import akka.actor.Actor.Receive
-import akka.actor.{Actor, Props, ActorSystem}
+import akka.actor.{Actor, Props}
 import akka.routing.RoundRobinRouter
-import twitter4j.{TwitterFactory, MediaEntity, Status, Twitter}
+import twitter4j.{TwitterFactory, Status}
 
 /**
  * Created by shamison on 15/08/20.

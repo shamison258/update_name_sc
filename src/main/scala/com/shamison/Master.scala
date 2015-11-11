@@ -3,17 +3,17 @@ package com.shamison
 import java.net.{URL, HttpURLConnection}
 
 import akka.actor.{Actor, Props}
-import akka.routing.RoundRobinRouter
+import akka.routing.RoundRobinPool
 import twitter4j.{TwitterFactory, Status}
 
 /**
  * Created by shamison on 15/08/20.
  */
 class Master extends Actor {
-  val nameRouter = context.actorOf(Props(classOf[NameActor], this).withRouter(RoundRobinRouter(2)))
-  val iconRouter = context.actorOf(Props(classOf[IconActor], this).withRouter(RoundRobinRouter(2)))
-  val defRouter = context.actorOf(Props(classOf[DefActor], this).withRouter(RoundRobinRouter(2)))
-  val sonRouter = context.actorOf(Props(classOf[SonActor], this).withRouter(RoundRobinRouter(2)))
+  val nameRouter = context.actorOf(Props(classOf[NameActor], this).withRouter(RoundRobinPool(2)))
+  val iconRouter = context.actorOf(Props(classOf[IconActor], this).withRouter(RoundRobinPool(2)))
+  val defRouter = context.actorOf(Props(classOf[DefActor], this).withRouter(RoundRobinPool(2)))
+  val sonRouter = context.actorOf(Props(classOf[SonActor], this).withRouter(RoundRobinPool(2)))
 
   val twitter = new TwitterFactory().getInstance
 

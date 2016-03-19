@@ -10,12 +10,11 @@ import scala.concurrent.Future
   */
 case class Listener() extends UserStreamAdapter {
 
-
-  val updateName = """^@_sham258 update_name (.*).*""".r
-  val updateNamePrefix = """(.*).*\(@_sham258\s+?\)$""".r
-  val updateIcon = """^@_sham258 update_icon .*""".r
-  val updateDefault = """^@_sham258 update_default.*""".r
-  val updateSon = """^(.*そん)$""".r
+  private val updateName = """^@_sham258 update_name (.*).*""".r
+  private val updateNamePrefix = """(.*).*\(@_sham258\s+?\)$""".r
+//  private val updateIcon = """^@_sham258 update_icon .*""".r
+  private val updateDefault = """^@_sham258 update_default.*""".r
+  private val updateSon = """^(.*そん)$""".r
 
   override def onStatus(status: Status) = status.getText match {
     case updateName(s) => Future {
@@ -24,11 +23,10 @@ case class Listener() extends UserStreamAdapter {
     case updateNamePrefix(s) => Future {
       Update.name(status, s)
     }
-    case updateIcon() => Future {
-      Update.icon(status)
-    }
-    case updateDefault()
-      if status.getUser.getScreenName == "_sham258"=> Future {
+//    case updateIcon() => Future {
+//      Update.icon(status)
+//    }
+    case updateDefault() => Future {
       Update.default(status)
     }
     case updateSon(s) => Future {
